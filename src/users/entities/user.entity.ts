@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Userfile } from "src/userfiles/entities/userfile.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('users')
 export class Users {
@@ -22,4 +23,7 @@ export class Users {
   @ApiProperty({ example: "mkslndkjnkmlsadw", description: 'User refresh token' })
   @Column({ type: 'text', default: null })
   refreshToken: string;
+
+  @OneToMany(() => Userfile, (userFile) => userFile.user)
+  userfiles: Userfile[];
 }

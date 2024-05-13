@@ -6,7 +6,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { UsersModule } from './users/users.module';
 import { Users } from './users/entities/user.entity';
 import { RedisModule } from './redis/redis.module';
-
+import { UserfilesModule } from './userfiles/userfiles.module';
+import { Userfile } from './userfiles/entities/userfile.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,13 +26,16 @@ import { RedisModule } from './redis/redis.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [ Users ],
+      entities: [ Users, Userfile ],
       synchronize: true,
     }),
 
     UsersModule,
 
     RedisModule,
+
+    UserfilesModule,
+
   ],
   controllers: [],
   providers: [],

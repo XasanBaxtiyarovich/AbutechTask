@@ -6,11 +6,12 @@ import { Users } from './entities/user.entity';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { RedisModule } from 'src/redis/redis.module';
+import { Userfile } from 'src/userfiles/entities/userfile.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature(
-      [ Users ]
+      [ Users, Userfile ]
     ),
     RedisModule,
     JwtModule.register({})
