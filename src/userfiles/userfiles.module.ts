@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { UserfilesService } from './userfiles.service';
-import { UserfilesController } from './userfiles.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { FilesModule } from 'src/files/files.module';
 import { Userfile } from './entities/userfile.entity';
 import { Users } from 'src/users/entities/user.entity';
-import { FilesModule } from 'src/files/files.module';
+import { UserfilesService } from './userfiles.service';
+import { UserfilesController } from './userfiles.controller';
 
 @Module({
   imports: [

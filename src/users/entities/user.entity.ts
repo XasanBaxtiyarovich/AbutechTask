@@ -1,6 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Userfile } from "src/userfiles/entities/userfile.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+
+import { Course } from "src/courses/entities/course.entity";
+import { Userfile } from "src/userfiles/entities/userfile.entity";
 
 @Entity('users')
 export class Users {
@@ -26,4 +28,7 @@ export class Users {
 
   @OneToMany(() => Userfile, (userFile) => userFile.user)
   userfiles: Userfile[];
+
+  @OneToMany(() => Course, (course) => course.user)
+  courses: Course[];
 }

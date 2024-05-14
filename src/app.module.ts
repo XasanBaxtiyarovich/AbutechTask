@@ -8,6 +8,8 @@ import { Users } from './users/entities/user.entity';
 import { RedisModule } from './redis/redis.module';
 import { UserfilesModule } from './userfiles/userfiles.module';
 import { Userfile } from './userfiles/entities/userfile.entity';
+import { CoursesModule } from './courses/courses.module';
+import { Course } from './courses/entities/course.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -26,7 +28,7 @@ import { Userfile } from './userfiles/entities/userfile.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [ Users, Userfile ],
+      entities: [ Users, Userfile, Course ],
       synchronize: true,
     }),
 
@@ -35,6 +37,8 @@ import { Userfile } from './userfiles/entities/userfile.entity';
     RedisModule,
 
     UserfilesModule,
+
+    CoursesModule,
 
   ],
   controllers: [],
