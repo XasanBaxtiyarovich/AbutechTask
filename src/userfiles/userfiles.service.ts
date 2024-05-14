@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { HttpStatus, Injectable } from '@nestjs/common';
 
 import { Userfile } from './entities/userfile.entity';
-import { Users } from 'src/users/entities/user.entity';
 import { FilesService } from 'src/files/files.service';
 import { CreateUserfileDto, UpdateUserfileDto } from './dto';
 
@@ -11,7 +10,6 @@ import { CreateUserfileDto, UpdateUserfileDto } from './dto';
 export class UserfilesService {
   constructor(
     private fileService: FilesService,
-    @InjectRepository(Users) private usersRepository: Repository<Users>,
     @InjectRepository(Userfile) private userfileRepository: Repository<Userfile>
   ) {}
 

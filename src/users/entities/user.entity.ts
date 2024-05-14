@@ -3,6 +3,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 import { Course } from "src/courses/entities/course.entity";
 import { Userfile } from "src/userfiles/entities/userfile.entity";
+import { Coursefile } from "src/coursefiles/entities/coursefile.entity";
 
 @Entity('users')
 export class Users {
@@ -31,4 +32,7 @@ export class Users {
 
   @OneToMany(() => Course, (course) => course.user)
   courses: Course[];
+
+  @OneToMany(() => Coursefile, (courseFile) => courseFile.user)
+  coursefiles: Coursefile[];
 }

@@ -10,6 +10,7 @@ import { UserfilesModule } from './userfiles/userfiles.module';
 import { Userfile } from './userfiles/entities/userfile.entity';
 import { CoursesModule } from './courses/courses.module';
 import { Course } from './courses/entities/course.entity';
+import { CoursefilesModule } from './coursefiles/coursefiles.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -39,6 +40,8 @@ import { Course } from './courses/entities/course.entity';
     UserfilesModule,
 
     CoursesModule,
+
+    CoursefilesModule,
 
   ],
   controllers: [],
